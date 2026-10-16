@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap">
 <link rel="preload" as="image" href="assets/img/hero-m.webp" media="(max-width:760px)">
 <link rel="preload" as="image" href="assets/img/hero.webp" media="(min-width:761px)">
-<link rel="stylesheet" href="styles.css?v=20261016-4">
+<link rel="stylesheet" href="styles.css?v=20261016-5">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -327,19 +327,31 @@
       <p class="lead" data-i="p.lead">Схема покажет все слои модели, а размер - ширину матраса. Цену пришлём в WhatsApp.</p>
     </div>
     <form class="cfg rv" id="pick" data-lb-direct novalidate>
-      <fieldset class="cfg-models">
-        <legend class="vh" data-i="cf.models">Модель матраса</legend>
-        <label class="mdl"><input type="radio" name="model" value="grand-hard" checked><span><b>Гранд Хард</b><small data-i="cf.f2">Жёсткий</small></span></label>
-        <label class="mdl"><input type="radio" name="model" value="francesco-ice"><span><b>Франческо Айс</b><small data-i="cf.f1">Средний</small></span></label>
-        <label class="mdl"><input type="radio" name="model" value="grand-memory"><span><b>Гранд Мемори</b><small data-i="cf.f0">Мягкий</small></span></label>
-        <label class="mdl"><input type="radio" name="model" value="vivien-lux"><span><b>Вивьен Люкс</b><small data-i="cf.f1">Средний</small></span></label>
-      </fieldset>
       <div class="cfg-main">
         <div class="cfg-stage">
-          <img class="cfg-photo" src="assets/img/mattress.webp" width="1400" height="579" alt="Матрас Фабрика Сна со стёганым чехлом" data-i-alt="alt.mattress" loading="lazy" decoding="async">
+          <fieldset class="cfg-models">
+            <legend class="vh" data-i="cf.models">Модель матраса</legend>
+            <label class="mdl"><input type="radio" name="model" value="grand-hard" checked><span><b>Гранд Хард</b><small data-i="cf.f2">Жёсткий</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="francesco-ice"><span><b>Франческо Айс</b><small data-i="cf.f1">Средний</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="grand-memory"><span><b>Гранд Мемори</b><small data-i="cf.f0">Мягкий</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="vivien-lux"><span><b>Вивьен Люкс</b><small data-i="cf.f1">Средний</small></span></label>
+          </fieldset>
           <p class="cfg-cap"><span data-i="cf.inside">Что внутри</span> · <span id="cfg-count"></span></p>
           <ol class="stack" id="cfg-stack"></ol>
           <p class="cfg-dim"><span class="cfg-dim-l" id="cfg-dimbar"><i></i></span><span><span data-i="cf.width">Ширина</span> <b id="cfg-w">160 см</b></span></p>
+          <fieldset class="pick-g">
+            <legend data-i="cf.wleg">Ширина, см · длина 200</legend>
+            <div class="opts">
+              <label><input type="radio" name="size" value="80×200"><span>80</span></label>
+              <label><input type="radio" name="size" value="90×200"><span>90</span></label>
+              <label><input type="radio" name="size" value="120×200"><span>120</span></label>
+              <label><input type="radio" name="size" value="140×200"><span>140</span></label>
+              <label><input type="radio" name="size" value="150×200"><span>150</span></label>
+              <label><input type="radio" name="size" value="160×200" checked><span>160</span></label>
+              <label><input type="radio" name="size" value="180×200"><span>180</span></label>
+              <label><input type="radio" name="size" value="Свой размер"><span data-i="p.s8">Свой размер</span></label>
+            </div>
+          </fieldset>
         </div>
         <div class="cfg-panel">
           <h3 class="cfg-name" id="cfg-name" aria-live="polite">Гранд Хард</h3>
@@ -353,19 +365,6 @@
           </dl>
           <ul class="ticks ticks-s" id="cfg-feat"></ul>
           <fieldset class="pick-g">
-            <legend data-i="p.size">Размер, см</legend>
-            <div class="opts">
-              <label><input type="radio" name="size" value="80×200"><span>80×200</span></label>
-              <label><input type="radio" name="size" value="90×200"><span>90×200</span></label>
-              <label><input type="radio" name="size" value="120×200"><span>120×200</span></label>
-              <label><input type="radio" name="size" value="140×200"><span>140×200</span></label>
-              <label><input type="radio" name="size" value="150×200"><span>150×200</span></label>
-              <label><input type="radio" name="size" value="160×200" checked><span>160×200</span></label>
-              <label><input type="radio" name="size" value="180×200"><span>180×200</span></label>
-              <label><input type="radio" name="size" value="Свой размер"><span data-i="p.s8">Свой размер</span></label>
-            </div>
-          </fieldset>
-          <fieldset class="pick-g">
             <legend data-i="p.who">Для кого</legend>
             <div class="opts">
               <label><input type="radio" name="who" value="Для себя" checked><span data-i="p.o1">Для себя</span></label>
@@ -375,7 +374,7 @@
           </fieldset>
           <label class="tgl"><input type="checkbox" name="topper" value="1"><span class="tgl-b" aria-hidden="true"></span><span data-i="cf.top">Добавить топпер своего производства</span></label>
           <div class="pick-out">
-            <p class="pick-sum" id="pick-sum" aria-live="polite"></p>
+            <p class="pick-sum vh" id="pick-sum" aria-live="polite"></p>
             <a class="btn btn-wa" href="https://wa.me/77760614911" data-wa="podbor" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="p.send">Узнать цену на модель</span></a>
           </div>
         </div>
@@ -566,6 +565,6 @@
   <a class="st-wa" href="https://wa.me/77760614911" data-wa="sticky" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="script.js?v=20261016-4"></script>
+<script src="script.js?v=20261016-5"></script>
 </body>
 </html>

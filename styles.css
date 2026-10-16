@@ -523,3 +523,42 @@ html:not(.js) .fold{display:none}
   .side-swap>.sig{order:2}
   .side-swap-l>.sig{order:-1}
 }
+/* компактный конфигуратор: целиком в один экран */
+#podbor .head{margin-bottom:clamp(22px,3vw,34px)}
+.cfg{padding:clamp(14px,2.2vw,26px)}
+.cfg-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3.4vw,44px)}
+.cfg-models{gap:8px;margin-bottom:0}
+.mdl>span{min-height:58px;padding:8px 6px;gap:2px;border-radius:12px}
+.mdl b{font-size:clamp(14.5px,1.25vw,16.5px)}
+.mdl small{font-size:12px}
+.cfg-cap{margin:14px 0 8px}
+.stack{gap:2px}
+.stack li{min-height:max(var(--sh),17px)}
+.lbl{font-size:13px;line-height:1.2}
+.stack li.is-spr .lbl span{padding:3px 8px;margin:-3px 0}
+.cfg-dim{margin-top:8px;font-size:13.5px}
+.cfg .pick-g{margin-top:14px}
+.cfg .pick-g legend{margin:0 0 8px;font-size:15px}
+.cfg .opts{gap:6px}
+.cfg .opts span{min-height:38px;padding:0 12px;font-size:14px}
+.cfg-name{font-size:clamp(28px,2.8vw,40px)}
+.cfg-tag{margin-top:6px;font-size:15.5px;line-height:1.45}
+.firm{margin-top:12px}
+.specs{grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;margin-top:14px}
+.specs div{padding:9px 10px;border-radius:10px}
+.specs dt{font-size:10.5px;letter-spacing:.06em;line-height:1.25}
+.specs dd{font-size:16.5px;margin-top:3px}
+.cfg .ticks{display:flex;flex-wrap:wrap;gap:6px 16px;margin-top:12px}
+.cfg .ticks li{font-size:14px;gap:6px}
+.cfg .ticks svg{flex-basis:16px;width:16px;height:16px;margin-top:2px}
+.tgl{margin-top:14px;font-size:15px}
+.cfg .pick-out{margin-top:16px}
+@media (max-width:1100px) and (min-width:901px){.specs{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:760px){
+  .specs{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .cfg-panel{padding-top:4px}
+}
+.mdl{display:flex}
+.mdl>span{flex:1;padding:8px 4px}
+.mdl b{font-size:clamp(13.5px,1.15vw,16px);letter-spacing:-.01em}
+@media (min-width:1200px){.mdl b{font-size:clamp(14px,1.05vw,15.5px);white-space:nowrap}}

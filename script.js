@@ -45,7 +45,7 @@
     mem: ["mem", 24, "Memory Foam - пена с памятью формы"],
     felt: ["felt", 8, "Войлок из волокна"],
     lat20: ["latex", 18, "Натуральный латекс 20\u00a0мм"],
-    spr: ["spr", 78, "Независимый пружинный блок: 240 пружин/м², проволока 2,2\u00a0мм"]
+    spr: ["spr", 48, "Независимый пружинный блок: 240 пружин/м², проволока 2,2\u00a0мм"]
   };
   var FE = {
     ppu30: "Усиленный ППУ 30\u00a0мм", ppu4: "Четыре слоя ППУ", felt2: "Войлок с обеих сторон блока",
@@ -76,7 +76,7 @@
     if (!pick) return null;
     var m = chk("model"), sz = chk("size"), who = chk("who");
     var key = m ? m.value : "grand-hard";
-    return { key: key, m: MODELS[key] || MODELS["grand-hard"], size: chkTxt(sz), sizeVal: sz ? sz.value : "", who: chkTxt(who), top: !!(pick.elements.topper && pick.elements.topper.checked) };
+    return { key: key, m: MODELS[key] || MODELS["grand-hard"], size: sz && /^\d/.test(sz.value) ? sz.value : chkTxt(sz), sizeVal: sz ? sz.value : "", who: chkTxt(who), top: !!(pick.elements.topper && pick.elements.topper.checked) };
   }
   function setTxt(id, v) { var el = doc.getElementById(id); if (el) el.textContent = v; }
   function cfgRender(anim) {
@@ -94,7 +94,7 @@
         var L = LY[id], was = li.getAttribute("data-id");
         li.hidden = false;
         li.style.setProperty("--i", i);
-        li.style.setProperty("--sh", (TOUCH && VW < 761 && id === "spr" ? 66 : L[1]) + "px");
+        li.style.setProperty("--sh", L[1] + "px");
         li.classList.toggle("is-spr", id === "spr");
         if (!li.firstChild) li.innerHTML = '<i class="slab"></i><span class="lbl"><span></span></span>';
         li.firstChild.setAttribute("data-t", L[0]);
