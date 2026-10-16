@@ -472,10 +472,12 @@ html:not(.js) .fold{display:none}
 .cfg-panel{min-width:0}
 .cfg-name{font:900 clamp(30px,3.4vw,44px)/1.05 var(--fd);color:var(--ink);letter-spacing:-.01em}
 .cfg-tag{margin-top:10px;font-size:16px;line-height:1.5;color:var(--txt2)}
-.firm{margin-top:20px}
-.firm-bar{position:relative;height:8px;border-radius:99px;background:linear-gradient(90deg,#EFE2BE,var(--gold) 55%,var(--gold3))}
-.firm-bar i{position:absolute;top:50%;left:var(--f,50%);width:22px;height:22px;margin:-11px 0 0 -11px;border-radius:50%;background:var(--petrol);border:3px solid #fff;box-shadow:0 2px 8px rgba(0,0,0,.25);transition:left .55s cubic-bezier(.2,.7,.2,1)}
-.firm-l{display:flex;justify-content:space-between;gap:8px;margin-top:8px;font-size:13px;color:var(--mute)}
+.firm{display:flex;align-items:center;gap:12px;margin-top:18px;font-size:15px;color:var(--txt2)}
+.firm b{font:800 17px/1.2 var(--fd);color:var(--ink)}
+.firm-bars{display:inline-flex;align-items:flex-end;gap:4px;height:22px}
+.firm-bars i{width:12px;border-radius:3px;background:var(--milk2);box-shadow:inset 0 0 0 1px rgba(14,27,33,.12);transition:background .3s}
+.firm-bars i:nth-child(1){height:10px}.firm-bars i:nth-child(2){height:16px}.firm-bars i:nth-child(3){height:22px}
+.firm-bars[data-f="0"] i:nth-child(-n+1),.firm-bars[data-f="1"] i:nth-child(-n+2),.firm-bars[data-f="2"] i:nth-child(-n+3){background:var(--gold);box-shadow:none}
 .specs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
 .specs div{padding:12px 14px;border-radius:12px;background:var(--milk);min-width:0}
 .specs dt{font-size:12px;color:var(--mute);text-transform:uppercase;letter-spacing:.08em;font-weight:600}
@@ -513,7 +515,7 @@ html:not(.js) .fold{display:none}
   .cfg .pick-out .btn{width:100%}
 }
 @media (prefers-reduced-motion:reduce){
-  .slab,.cfg-dim-l i,.firm-bar i,.mdl>span,.tgl-b,.tgl-b::after{transition:none}
+  .slab,.cfg-dim-l i,.firm-bars i,.mdl>span,.tgl-b,.tgl-b::after{transition:none}
   .stack.swap li,.stack li.new{animation:none}
 }
 /* стороны «текст + кадр» на десктопе чередуются по всей странице */

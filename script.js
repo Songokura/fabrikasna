@@ -109,7 +109,8 @@
     setTxt("cfg-count", m.ly.length + " " + tm("u.layers", "слоёв"));
     setTxt("cfg-name", m.n);
     setTxt("cfg-tag", tm("mt." + d.key, m.tag));
-    var fi = doc.getElementById("cfg-firm"); if (fi) fi.style.setProperty("--f", ["6%", "50%", "94%"][m.f]);
+    var fi = doc.getElementById("cfg-firm"); if (fi) fi.setAttribute("data-f", m.f);
+    setTxt("cfg-firm-t", tm("cf.f" + m.f, ["Мягкий", "Средний", "Жёсткий"][m.f]));
     setTxt("cfg-h", m.h + " " + tm("u.cm", "см"));
     setTxt("cfg-load", LANG === "kk" ? m.load + " " + tm("u.kgto", "кг") : "до " + m.load + " кг");
     setTxt("cfg-war", years(m.war));
