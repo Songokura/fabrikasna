@@ -526,7 +526,7 @@ html:not(.js) .fold{display:none}
 /* компактный конфигуратор: целиком в один экран */
 #podbor .head{margin-bottom:clamp(22px,3vw,34px)}
 .cfg{padding:clamp(14px,2.2vw,26px)}
-.cfg-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3.4vw,44px)}
+@media (min-width:901px){.cfg-main{grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(20px,3.4vw,44px)}}
 .cfg-models{gap:8px;margin-bottom:0}
 .mdl>span{min-height:58px;padding:8px 6px;gap:2px;border-radius:12px}
 .mdl b{font-size:clamp(14.5px,1.25vw,16.5px)}
@@ -562,3 +562,5 @@ html:not(.js) .fold{display:none}
 .mdl>span{flex:1;padding:8px 4px}
 .mdl b{font-size:clamp(13.5px,1.15vw,16px);letter-spacing:-.01em}
 @media (min-width:1200px){.mdl b{font-size:clamp(14px,1.05vw,15.5px);white-space:nowrap}}
+/* цифры сразу под героем - узкой полосой */
+.sec-trust{padding:clamp(34px,4.5vw,56px) 0}
