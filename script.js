@@ -28,24 +28,103 @@
     opt: "Здравствуйте! " + SITE + " Нужен оптовый прайс. Объект и количество: ",
     kontakty: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     sticky: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
-    podbor: "Здравствуйте! " + SITE + " Подберите, пожалуйста:"
+    podbor: "Здравствуйте! " + SITE + " Интересует матрас:"
   } };
-  var PICK_L = { ru: { what: "Что", size: "Размер", firm: "Жёсткость", who: "Для кого" } };
+  var PICK_L = { ru: { model: "Модель", size: "Размер", who: "Для кого", top: "Топпер", yes: "добавить" } };
 
+  /* ---------- Модели: слои и характеристики (RU здесь, KZ в assets/lang/kk.js) ---------- */
+  var LY = {
+    top: ["top", 16, "Топпер своего производства"],
+    cot350: ["fabric", 10, "Хлопковая ткань 350\u00a0г/м²"],
+    cot240: ["fabric", 10, "Хлопковая ткань 240\u00a0г/м²"],
+    cool380: ["cool", 12, "Ткань с эффектом холодка 380\u00a0г/м²"],
+    jac128: ["jac", 10, "Ткань жаккард 128\u00a0г/м²"],
+    sin100: ["sint", 10, "Синтепон 100\u00a0г/м²"],
+    ppu12: ["ppu", 14, "ППУ 12\u00a0мм, плотность 18\u00a0кг/м³"],
+    ppu30: ["ppu30", 26, "ППУ 30\u00a0мм, плотность 25\u00a0кг/м³"],
+    mem: ["mem", 24, "Memory Foam - пена с памятью формы"],
+    felt: ["felt", 8, "Войлок из волокна"],
+    lat20: ["latex", 18, "Натуральный латекс 20\u00a0мм"],
+    spr: ["spr", 78, "Независимый пружинный блок: 240 пружин/м², проволока 2,2\u00a0мм"]
+  };
+  var FE = {
+    ppu30: "Усиленный ППУ 30\u00a0мм", ppu4: "Четыре слоя ППУ", felt2: "Войлок с обеих сторон блока",
+    cool: "Ткань с эффектом холодка", latex: "Натуральный латекс 20\u00a0мм", season: "Летняя и зимняя сторона",
+    mem: "Слой Memory Foam", two: "Двусторонняя конструкция", cot2: "Хлопок 240\u00a0г/м² с двух сторон"
+  };
+  var MODELS = {
+    "grand-hard": { n: "Гранд Хард", f: 2, h: "26-27", load: 150, war: 5, life: 15,
+      ly: ["cot350", "sin100", "ppu12", "ppu12", "ppu30", "felt", "spr", "felt", "ppu12", "ppu12", "sin100", "jac128"],
+      tag: "Усиленная ортопедическая поддержка для тех, кто любит твёрдое основание.", fe: ["ppu30", "ppu4", "felt2"] },
+    "francesco-ice": { n: "Франческо Айс", f: 1, h: "25-26", load: 140, war: 4, life: 15,
+      ly: ["cool380", "sin100", "ppu12", "ppu12", "felt", "spr", "felt", "lat20", "ppu12", "ppu12", "sin100", "cot240"],
+      tag: "Две стороны: летом - прохладная ткань, зимой - тёплый хлопок.", fe: ["cool", "latex", "season"] },
+    "grand-memory": { n: "Гранд Мемори", f: 0, h: "30", load: 150, war: 5, life: 15,
+      ly: ["cot350", "sin100", "ppu12", "ppu12", "mem", "ppu30", "felt", "spr", "felt", "ppu12", "ppu12", "sin100", "jac128"],
+      tag: "Слой с памятью формы мягко повторяет тело и снимает давление на плечи и бёдра.", fe: ["mem", "ppu30", "two"] },
+    "vivien-lux": { n: "Вивьен Люкс", f: 1, h: "24", load: 120, war: 4, life: 15,
+      ly: ["cot240", "sin100", "ppu12", "ppu12", "felt", "spr", "felt", "ppu12", "ppu12", "sin100", "cot240"],
+      tag: "Модель на каждый день: обе стороны одинаковые, хлопок сверху и снизу.", fe: ["cot2", "ppu4", "two"] }
+  };
+  function tm(key, ru) { var d = I18N[LANG]; return (LANG !== "ru" && d && d[key] != null) ? d[key] : ru; }
+  function years(n) { return LANG === "kk" ? n + " " + tm("u.year", "лет") : n + (n === 4 ? " года" : " лет"); }
+
+  var pick = doc.getElementById("pick"), lastModel = null;
+  function chk(n) { return pick ? pick.querySelector('input[name="' + n + '"]:checked') : null; }
+  function chkTxt(el) { var sp = el && el.nextElementSibling; return sp ? sp.textContent.trim() : (el ? el.value : ""); }
   function pickData() {
-    var f = doc.getElementById("pick"); if (!f) return null;
-    var out = {};
-    ["what", "size", "firm", "who"].forEach(function (n) {
-      var el = f.querySelector('input[name="' + n + '"]:checked');
-      if (el) { var sp = el.nextElementSibling; out[n] = { val: el.value, txt: sp ? sp.textContent.trim() : el.value }; }
-    });
-    return out;
+    if (!pick) return null;
+    var m = chk("model"), sz = chk("size"), who = chk("who");
+    var key = m ? m.value : "grand-hard";
+    return { key: key, m: MODELS[key] || MODELS["grand-hard"], size: chkTxt(sz), sizeVal: sz ? sz.value : "", who: chkTxt(who), top: !!(pick.elements.topper && pick.elements.topper.checked) };
+  }
+  function setTxt(id, v) { var el = doc.getElementById(id); if (el) el.textContent = v; }
+  function cfgRender(anim) {
+    var d = pickData(); if (!d) return;
+    var m = d.m, stack = doc.getElementById("cfg-stack");
+    var cm = parseInt(d.sizeVal, 10); if (!cm) cm = 160;
+    var w = (40 + (clamp((cm - 80) / 100) * 60)).toFixed(1) + "%";
+    var ids = (d.top ? ["top"] : []).concat(m.ly);
+    if (stack) {
+      while (stack.children.length < 14) stack.appendChild(doc.createElement("li"));
+      stack.style.setProperty("--w", w);
+      [].forEach.call(stack.children, function (li, i) {
+        var id = ids[i];
+        if (!id) { li.hidden = true; li.removeAttribute("data-id"); return; }
+        var L = LY[id], was = li.getAttribute("data-id");
+        li.hidden = false;
+        li.style.setProperty("--i", i);
+        li.style.setProperty("--sh", (TOUCH && VW < 761 && id === "spr" ? 66 : L[1]) + "px");
+        li.classList.toggle("is-spr", id === "spr");
+        if (!li.firstChild) li.innerHTML = '<i class="slab"></i><span class="lbl"><span></span></span>';
+        li.firstChild.setAttribute("data-t", L[0]);
+        li.querySelector(".lbl span").textContent = tm("ly." + id, L[2]);
+        if (anim === "top" && id === "top" && was !== "top") { li.classList.remove("new"); void li.offsetWidth; li.classList.add("new"); }
+        li.setAttribute("data-id", id);
+      });
+      if (anim === true && !REDUCED) { stack.classList.remove("swap"); void stack.offsetWidth; stack.classList.add("swap"); }
+    }
+    var bar = doc.getElementById("cfg-dimbar"); if (bar) bar.style.setProperty("--w", w);
+    setTxt("cfg-w", d.sizeVal && cm ? cm + " " + tm("u.cm", "см") : tm("p.s8", "Свой размер"));
+    setTxt("cfg-count", m.ly.length + " " + tm("u.layers", "слоёв"));
+    setTxt("cfg-name", m.n);
+    setTxt("cfg-tag", tm("mt." + d.key, m.tag));
+    var fi = doc.getElementById("cfg-firm"); if (fi) fi.style.setProperty("--f", ["6%", "50%", "94%"][m.f]);
+    setTxt("cfg-h", m.h + " " + tm("u.cm", "см"));
+    setTxt("cfg-load", LANG === "kk" ? m.load + " " + tm("u.kgto", "кг") : "до " + m.load + " кг");
+    setTxt("cfg-war", years(m.war));
+    setTxt("cfg-life", years(m.life));
+    var fe = doc.getElementById("cfg-feat");
+    if (fe) fe.innerHTML = m.fe.map(function (k) { return '<li><svg width="20" height="20" aria-hidden="true"><use href="#ic-chk"/></svg><span></span></li>'; }).join("");
+    if (fe) [].forEach.call(fe.querySelectorAll("span"), function (sp, i) { sp.textContent = tm("fe." + m.fe[i], FE[m.fe[i]]); });
+    pickSummary();
   }
   function pickSummary() {
     var s = doc.getElementById("pick-sum"), d = pickData();
     if (!s || !d) return;
-    var parts = [];
-    ["what", "size", "firm", "who"].forEach(function (n) { if (d[n]) parts.push(d[n].txt); });
+    var parts = [d.m.n, d.size];
+    if (d.top) parts.push("+ " + tm("u.topper", "топпер"));
+    parts.push(d.who);
     s.textContent = parts.join(" · ");
   }
   W.addEventListener("click", function (e) {
@@ -59,8 +138,12 @@
       text += "\n" + (nm ? nm.textContent.trim() : "");
     }
     if (key === "podbor") {
-      var p = pickData() || {}, L = PICK_L[LANG] || PICK_L.ru;
-      ["what", "size", "firm", "who"].forEach(function (n) { if (p[n]) text += "\n" + L[n] + ": " + p[n].txt; });
+      var p = pickData(), L = PICK_L[LANG] || PICK_L.ru;
+      if (p) {
+        text += "\n" + L.model + ": " + p.m.n + "\n" + L.size + ": " + p.size;
+        if (p.top) text += "\n" + L.top + ": " + L.yes;
+        text += "\n" + L.who + ": " + p.who;
+      }
     }
     a.setAttribute("href", "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(text));
   }, true);
@@ -248,7 +331,7 @@
     });
     try { localStorage.setItem("fsna-lang", lang); } catch (e) {}
     fitText();
-    pickSummary();
+    cfgRender(false);
   }
   function loadLang(lang, done) {
     if (I18N[lang] || lang !== "kk") return done();
@@ -277,12 +360,17 @@
     if (lang !== "ru") setLang(lang);
   })();
 
-  /* ---------- Подбор ---------- */
-  var pick = doc.getElementById("pick");
+  /* ---------- Модели и подбор ---------- */
   if (pick) {
-    pick.addEventListener("change", pickSummary);
+    pick.addEventListener("change", function (e) {
+      var n = e.target && e.target.name;
+      var key = (chk("model") || {}).value;
+      if (n === "model" && key !== lastModel) { lastModel = key; cfgRender(true); }
+      else cfgRender(n === "topper" ? "top" : false);
+    });
     pick.addEventListener("submit", function (e) { e.preventDefault(); });
-    pickSummary();
+    lastModel = (chk("model") || {}).value;
+    cfgRender(false);
   }
 
   /* ---------- Проявление секций ---------- */
