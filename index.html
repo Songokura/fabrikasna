@@ -30,9 +30,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap">
-<link rel="preload" as="image" href="assets/img/hero-light-m.webp" media="(max-width:760px)">
-<link rel="preload" as="image" href="assets/img/hero-light.webp" media="(min-width:761px)">
-<link rel="stylesheet" href="styles.css?v=20261017-1">
+<link rel="preload" as="image" href="assets/img/hero-bed-m.webp" media="(max-width:760px)">
+<link rel="preload" as="image" href="assets/img/hero-bed.webp" media="(min-width:761px)">
+<link rel="stylesheet" href="styles.css?v=20261017-2">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -70,6 +70,11 @@
   <symbol id="ic-tel" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" d="M5 3.5h3.2l1.6 4.2-2.1 1.5a12.5 12.5 0 0 0 7.1 7.1l1.5-2.1 4.2 1.6V19a1.8 1.8 0 0 1-1.9 1.8C10.5 20.3 3.7 13.5 3.2 5.4A1.8 1.8 0 0 1 5 3.5Z"/></symbol>
   <symbol id="ic-arr" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M5 12h14M13 6l6 6-6 6"/></symbol>
   <symbol id="ic-pin" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M12 21s-6.5-6.1-6.5-11.2A6.5 6.5 0 0 1 12 3.3a6.5 6.5 0 0 1 6.5 6.5C18.5 14.9 12 21 12 21Z"/><circle cx="12" cy="9.8" r="2.4" fill="none" stroke="currentColor" stroke-width="1.8"/></symbol>
+  <symbol id="ic-logo" viewBox="0 0 48 36"><path fill="currentColor" d="M24 2.5 44.5 10.6 24 18.7 3.5 10.6Z"/><path fill="none" stroke="currentColor" stroke-width="3.6" stroke-linecap="round" stroke-linejoin="round" d="m4 17.6 20 7.9 20-7.9M4 25.2l20 7.9 20-7.9"/></symbol>
+  <symbol id="ic-spring" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"><ellipse cx="16" cy="6" rx="8" ry="2.6"/><path d="M8 6c0 2 16 2.6 16 5.2S8 13.8 8 16.4s16 2.6 16 5.2-16 2.6-16 5.2"/><ellipse cx="16" cy="26.8" rx="8" ry="2.6"/></g></symbol>
+  <symbol id="ic-wire" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.9"><circle cx="13" cy="17" r="9.5"/><circle cx="19" cy="14" r="9.5"/><path stroke-linecap="round" d="M7.5 19.5c2.5 3.2 7 4.3 10.5 2.6"/></g></symbol>
+  <symbol id="ic-spine" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"><path d="M12.5 3.5h7l1 3.2-1 2.3h-7l-1-2.3Z"/><path d="M13.2 10.5h7.4l1.1 3.3-1.1 2.4h-7.4l-1-2.4Z"/><path d="M12.2 17.7h7.6l1.2 3.4-1.2 2.5h-7.6l-1.2-2.5Z"/><path d="M11 25.1h8l1.4 3.4h-10.8Z"/></g></symbol>
+  <symbol id="ic-shield" viewBox="0 0 32 32"><g fill="none" stroke="currentColor" stroke-width="1.9" stroke-linejoin="round" stroke-linecap="round"><path d="M16 3.5 26 7v8.2c0 6.1-4.1 11-10 13.3C10.1 26.2 6 21.3 6 15.2V7Z"/><path d="m11.3 15.8 3.4 3.4 6.2-6.4"/></g></symbol>
   <symbol id="ic-chk" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" d="m5 12.5 4.5 4.5L19 7.5"/></symbol>
 </svg>
 
@@ -77,17 +82,18 @@
 
 <header class="hdr" id="hdr">
   <div class="hdr-in">
-    <a class="brand" href="#top" aria-label="Фабрика Сна - на главную"><span class="bw1">Фабрика</span> <span class="bw2">Сна</span></a>
+    <a class="brand" href="#top" aria-label="Фабрика Сна - на главную"><svg class="brand-ic" width="50" height="38" aria-hidden="true"><use href="#ic-logo"/></svg><span class="brand-t"><span class="bw1">Фабрика</span><span class="bw2">Сна</span></span></a>
     <nav class="nav" aria-label="Разделы">
-      <a href="#matrasy" data-i="nav.matrasy">Матрасы</a>
+      <a href="#top" class="is-cur" data-i="nav.home">Главная</a>
+      <a href="#katalog" data-i="nav.katalog">Каталог</a>
       <a href="#podbor" data-i="nav.podbor">Модели</a>
-      <a href="#toppery" data-i="nav.toppery">Топперы</a>
       <a href="#dostavka" data-i="nav.dostavka">Доставка</a>
       <a href="#opt" data-i="nav.opt">Опт</a>
-      <a href="#shourum" data-i="nav.shourum">Шоу-рум</a>
+      <a href="#kontakty" data-i="nav.kontakty">Контакты</a>
     </nav>
     <div class="hdr-right">
-      <a class="hdr-tel" href="tel:+77760614911">+7&nbsp;776&nbsp;061&nbsp;49&nbsp;11</a>
+      <a class="hdr-call" href="tel:+77760614911"><svg width="26" height="26" aria-hidden="true"><use href="#ic-tel"/></svg><span><b>+7&nbsp;776&nbsp;061&nbsp;49&nbsp;11</b><small data-i="hdr.hours">Звоните с 10:00 до 19:00</small></span></a>
+      <a class="hdr-wa" href="https://wa.me/77760614911" data-wa="header" target="_blank" rel="noopener"><span class="hdr-wa-ic"><svg width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg></span><span class="hdr-wa-t"><span data-i="hdr.wa1">Написать</span> <span data-i="hdr.wa2">в WhatsApp</span></span></a>
       <a class="ico ico-tel" href="tel:+77760614911" aria-label="Позвонить" data-i-aria="ui.call"><svg width="18" height="18" aria-hidden="true"><use href="#ic-tel"/></svg></a>
       <div class="lang" role="group" aria-label="Язык сайта" data-i-aria="ui.langgroup">
         <button type="button" data-lang="ru" class="is-active" aria-pressed="true" lang="ru">RU</button>
@@ -100,7 +106,7 @@
 
 <div class="menu" id="menu" hidden>
   <div class="menu-in">
-    <a href="#matrasy" data-i="nav.matrasy">Матрасы</a>
+    <a href="#katalog" data-i="nav.katalog">Каталог</a>
     <a href="#podbor" data-i="nav.podbor">Модели</a>
     <a href="#toppery" data-i="nav.toppery">Топперы</a>
     <a href="#dostavka" data-i="nav.dostavka">Доставка</a>
@@ -116,38 +122,53 @@
 
 <main id="main">
 
-<!-- Герой -->
-<div class="pw pw-hero" id="top">
-  <section class="plate pl-hero" aria-labelledby="h1">
-    <div class="sig sig-hero">
-      <div class="ph">
-        <picture>
-          <source media="(max-width:760px)" srcset="assets/img/hero-light-m.webp">
-          <img src="assets/img/hero-light.webp" width="1600" height="1056" alt="Светлая спальня: кровать с белыми и синими подушками у окна" data-i-alt="alt.hero" fetchpriority="high" decoding="async">
-        </picture>
-      </div>
-      <div class="fold" aria-hidden="true"><i class="cover"></i><i class="flapw"><i class="flap"></i></i><i class="crease"></i></div>
-    </div>
-    <div class="grad grad-hero"></div>
-    <div class="pl-in">
-      <div class="txt hero-txt">
-        <p class="kick kick-hero"><span class="dash"></span><span data-i="hero.kick">Астана · шоу-рум и склад · 10+ лет</span><span class="dash"></span></p>
-        <h1 id="h1"><span class="l1" data-i="hero.l1">Матрасы и топперы</span><span class="l2" data-i="hero.l2">в Астане</span></h1>
-        <p class="lead" data-i="hero.lead">Фабричные матрасы от 11&nbsp;000&nbsp;₸ и топперы своего производства. По Астане привезём в день заказа, подушка в подарок.</p>
-        <div class="cta cta-pair">
-          <a class="btn btn-wa" href="https://wa.me/77760614911" data-wa="hero" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="btn.wapick">Подобрать в WhatsApp</span></a>
-          <a class="btn btn-ghost" href="tel:+77760614911"><svg width="18" height="18" aria-hidden="true"><use href="#ic-tel"/></svg><span data-i="btn.call">Позвонить</span></a>
-        </div>
+<!-- Герой: текст слева, кровать справа -->
+<section class="hero" id="top" aria-labelledby="h1">
+  <picture class="hero-ph">
+    <source media="(max-width:760px)" srcset="assets/img/hero-bed-m.webp">
+    <img src="assets/img/hero-bed.webp" width="1600" height="1056" alt="Светлая спальня: кровать с белыми и синими подушками у окна" data-i-alt="alt.hero" fetchpriority="high" decoding="async">
+  </picture>
+  <div class="hero-fade" aria-hidden="true"></div>
+  <div class="wrap hero-in">
+    <div class="hero-txt">
+      <p class="hero-brand">Фабрика Сна</p>
+      <h1 id="h1"><span class="l1" data-i="hero.l1">Ортопедические матрасы</span> <span class="l2" data-i="hero.l2">для здорового сна</span></h1>
+      <p class="hero-lead" data-i="hero.lead">Фабричные матрасы в&nbsp;наличии и&nbsp;топперы своего производства в&nbsp;Астане. Забота о&nbsp;вашей спине, комфорте и&nbsp;здоровье.</p>
+      <div class="hero-cta">
+        <a class="btn btn-dark btn-xl" href="#katalog"><span data-i="hero.btn">Выбрать матрас</span><svg width="22" height="22" aria-hidden="true"><use href="#ic-arr"/></svg></a>
+        <a class="btn btn-wa btn-xl" href="https://wa.me/77760614911" data-wa="hero" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="btn.wa">Написать в WhatsApp</span></a>
       </div>
     </div>
-    <div class="ribbon" aria-hidden="true">
-      <div class="ribbon-track">
-        <span data-i="rb.1">Гранд Хард</span><span data-i="rb.2">Франческо Айс</span><span data-i="rb.3">Гранд Мемори</span><span data-i="rb.4">Вивьен Люкс</span><span data-i="rb.5">Топперы</span><span data-i="rb.6">240 пружин на м²</span><span data-i="rb.7">Доставка день в день</span><span data-i="rb.8">Опт для гостиниц</span>
-        <span data-i="rb.1">Гранд Хард</span><span data-i="rb.2">Франческо Айс</span><span data-i="rb.3">Гранд Мемори</span><span data-i="rb.4">Вивьен Люкс</span><span data-i="rb.5">Топперы</span><span data-i="rb.6">240 пружин на м²</span><span data-i="rb.7">Доставка день в день</span><span data-i="rb.8">Опт для гостиниц</span>
-      </div>
+  </div>
+</section>
+
+<!-- Преимущества -->
+<section class="feat" id="preimushchestva" aria-labelledby="h-feat">
+  <h2 class="vh" id="h-feat" data-i="ft4.h">Почему наши матрасы</h2>
+  <ul class="wrap feat-in">
+    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-spring"/></svg></span><b data-i="ft4.t1">Плотный пружинный блок</b><span data-i="ft4.p1">240 пружин на&nbsp;м² для равномерной поддержки</span></li>
+    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-wire"/></svg></span><b data-i="ft4.t2">Проволока 2,2&nbsp;мм</b><span data-i="ft4.p2">Надёжные и прочные пружины из&nbsp;качественной стали</span></li>
+    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-spine"/></svg></span><b data-i="ft4.t3">Комфорт для спины</b><span data-i="ft4.p3">Правильное положение тела и&nbsp;здоровый сон</span></li>
+    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-shield"/></svg></span><b data-i="ft4.t4">Гарантия 5&nbsp;лет</b><span data-i="ft4.p4">На пружинный блок, 15&nbsp;лет службы матраса</span></li>
+  </ul>
+</section>
+
+<!-- Каталог -->
+<section class="kat" id="katalog" aria-labelledby="h-kat">
+  <div class="wrap kat-in">
+    <div class="kat-t rv">
+      <p class="kat-k" data-i="kat.k">Каталог матрасов</p>
+      <h2 id="h-kat" data-i="kat.h">Выберите свой идеальный матрас</h2>
+      <p class="kat-lead" data-i="kat.lead">Четыре модели разной жёсткости и&nbsp;высоты, топперы под ваш размер. Подскажем, какой подойдёт именно вам.</p>
+      <a class="btn btn-line" href="#podbor"><span data-i="kat.btn">Перейти в каталог</span><svg width="20" height="20" aria-hidden="true"><use href="#ic-arr"/></svg></a>
     </div>
-  </section>
-</div>
+    <ul class="kat-cards rv">
+      <li><a class="kcard" href="#podbor"><span class="kcard-ph"><img src="assets/img/mattress.webp" width="1400" height="579" alt="Пружинный матрас Фабрика Сна со стёганым чехлом" data-i-alt="alt.mattress" loading="lazy" decoding="async" style="--pos:38% 50%"></span><b data-i="kat.c1">Пружинные матрасы</b><span data-i="kat.c1p">4 модели, от&nbsp;мягкой до&nbsp;жёсткой</span></a></li>
+      <li><a class="kcard" href="#toppery"><span class="kcard-ph"><img src="assets/img/toppery.webp" width="1024" height="576" alt="Рельефная пена топпера крупным планом" data-i-alt="alt.toppery" loading="lazy" decoding="async"></span><b data-i="kat.c2">Топперы</b><span data-i="kat.c2p">Своего производства, под ваш размер</span></a></li>
+      <li><a class="kcard" href="#opt"><span class="kcard-ph"><img src="assets/img/opt.webp" width="1400" height="1050" alt="Номер гостиницы с застеленной кроватью" data-i-alt="alt.opt" loading="lazy" decoding="async"></span><b data-i="kat.c3">Опт для гостиниц</b><span data-i="kat.c3p">Партии со своего склада</span></a></li>
+    </ul>
+  </div>
+</section>
 
 <!-- Доверие -->
 <section class="sec t-light sec-trust" id="doverie" aria-labelledby="h-trust">
@@ -157,7 +178,6 @@
       <li class="num"><b>10+</b><span data-i="trust.n1">лет на рынке</span></li>
       <li class="num"><b>10&nbsp;000+</b><span data-i="trust.n2">доставок</span></li>
       <li class="num"><b>10+</b><span data-i="trust.n3">гостиниц обслужили</span></li>
-      <li class="num"><b data-i="trust.n4b">5&nbsp;лет</b><span data-i="trust.n4">гарантии на пружинные блоки</span></li>
     </ul>
   </div>
 </section>
@@ -446,10 +466,11 @@
 
 <footer class="foot">
   <div class="wrap foot-in">
-    <a class="brand brand-foot" href="#top"><span class="bw1">Фабрика</span> <span class="bw2">Сна</span></a>
-    <p data-i="ft.line">Матрасы и топперы в Астане. Розница и опт, доставка по Казахстану.</p>
-    <p class="foot-legal"><span data-i="ft.ip">ИП «HomeNova»</span> · © <span id="year">2026</span></p>
+    <p class="foot-slogan"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 32C8 18 17 9 33 7c0 15-8 24-22 24M8 32l13-13"/></svg><span data-i="ft.slogan">Фабрика Сна - ваш комфортный сон каждый день</span></p>
+    <a class="hdr-call foot-call" href="tel:+77760614911"><svg width="24" height="24" aria-hidden="true"><use href="#ic-tel"/></svg><span><b>+7&nbsp;776&nbsp;061&nbsp;49&nbsp;11</b><small data-i="hdr.hours">Звоните с 10:00 до 19:00</small></span></a>
+    <a class="hdr-wa foot-wa" href="https://wa.me/77760614911" data-wa="kontakty" target="_blank" rel="noopener"><span class="hdr-wa-ic"><svg width="22" height="22" aria-hidden="true"><use href="#ic-wa"/></svg></span><span class="hdr-wa-t"><span data-i="hdr.wa1">Написать</span> <span data-i="hdr.wa2">в WhatsApp</span></span></a>
   </div>
+  <p class="wrap foot-legal"><span data-i="ft.ip">ИП «HomeNova»</span> · © <span id="year">2026</span></p>
 </footer>
 
 <nav class="sticky" id="sticky" aria-label="Быстрая связь" data-i-aria="ui.quick">
@@ -457,6 +478,6 @@
   <a class="st-wa" href="https://wa.me/77760614911" data-wa="sticky" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="script.js?v=20261017-1"></script>
+<script src="script.js?v=20261017-2"></script>
 </body>
 </html>
