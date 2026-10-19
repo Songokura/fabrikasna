@@ -23,6 +23,7 @@
     menu: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     header: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     matrasy: "Здравствуйте! " + SITE + " Интересует цена на матрас. Размер: ",
+    home: "Здравствуйте! " + SITE + " Увидел фото у покупателей, хочу такой же матрас. Размер: ",
     tip: "Здравствуйте! " + SITE + " Интересует цена:",
     toppery: "Здравствуйте! " + SITE + " Интересует топпер. Размер: ",
     podarok: "Здравствуйте! " + SITE + " Хочу матрас с подушкой в подарок. Размер: ",
@@ -407,6 +408,27 @@
       if (thanks) { thanks.hidden = false; try { thanks.focus({ preventScroll: true }); } catch (err) {} }
       form.reset();
     });
+  }
+
+  /* ---------- Лента фото покупателей: стрелки на шаг одной карточки ---------- */
+  var rail = doc.getElementById("home-rail");
+  if (rail) {
+    var rPrev = doc.querySelector(".home-prev"), rNext = doc.querySelector(".home-next");
+    var railStep = function () {
+      var li = rail.querySelector("li");
+      return li ? li.getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 0) : rail.clientWidth;
+    };
+    var railSync = function () {
+      var max = rail.scrollWidth - rail.clientWidth;
+      rPrev.hidden = rNext.hidden = max < 4;
+      rPrev.disabled = rail.scrollLeft < 4;
+      rNext.disabled = rail.scrollLeft > max - 4;
+    };
+    rPrev.addEventListener("click", function () { rail.scrollBy({ left: -railStep(), behavior: REDUCED ? "auto" : "smooth" }); });
+    rNext.addEventListener("click", function () { rail.scrollBy({ left: railStep(), behavior: REDUCED ? "auto" : "smooth" }); });
+    rail.addEventListener("scroll", railSync, { passive: true });
+    W.addEventListener("resize", railSync);
+    railSync();
   }
 
   var year = doc.getElementById("year"); if (year) year.textContent = String(new Date().getFullYear());
