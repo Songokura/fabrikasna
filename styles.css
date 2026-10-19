@@ -699,3 +699,64 @@ html:not(.js) .fold{display:none}
 .pl-dark .sig-panel{box-shadow:0 34px 70px -30px rgba(4,12,26,.75)}
 .pl-dark :focus-visible{outline-color:var(--gold)}
 @media (max-width:760px){.sec{padding:56px 0}}
+
+/* ---------- 19.10.2026: страница целиком в языке макета клиента ----------
+   Голова блока слева: заглавный кикер, тёмно-синий заголовок, короткий лид. Белые карточки с мягкой тенью,
+   иконки в кругах как в полосе преимуществ. Фоны блоков чередуются: почти белый и тёплый беж каталога. */
+.blk{position:relative;padding:clamp(52px,6vw,84px) 0;background:#FBF9F5;scroll-margin-top:var(--hdr)}
+.blk-alt{background:linear-gradient(180deg,#F6F2EC,#F1ECE4)}
+.bhead{margin-bottom:clamp(26px,3.4vw,40px);text-align:left}
+.bk{font:700 13px/1.2 var(--ft);letter-spacing:.16em;text-transform:uppercase;color:var(--petrol)}
+.blk h2{margin-top:12px;font:800 clamp(28px,3.1vw,42px)/1.12 var(--fd);color:var(--petrol);letter-spacing:-.01em;text-align:left}
+.blead{margin-top:12px;font-size:clamp(16px,1.2vw,17.5px);line-height:1.55;color:var(--txt2)}
+.blk.t-dark{background:var(--petrol)}
+.blk.t-dark .bk{color:var(--gold)}
+.blk.t-dark h2{color:#F3F6FA}
+.blk.t-dark .blead{color:#C9D5E4}
+/* цена и подарок под заголовком моделей */
+.bprice{margin-top:18px;display:flex;align-items:baseline;flex-wrap:wrap;gap:6px 10px;font:600 16px/1.2 var(--ft);color:var(--txt2)}
+.bprice b{font:900 clamp(30px,2.8vw,40px)/1 var(--fd);color:var(--petrol);white-space:nowrap}
+.bprice span{white-space:nowrap}
+.bprice .gift{margin-left:6px;align-self:center;padding:8px 14px;border-radius:999px;background:var(--gold2);color:var(--deep);font-size:14.5px;font-weight:600}
+/* цифры доверия строкой, разделители как в полосе преимуществ */
+.bnums{display:flex;flex-wrap:wrap;margin-top:20px}
+.bnums li{display:flex;flex-direction:column;gap:4px;padding:2px clamp(18px,2.6vw,36px)}
+.bnums li:first-child{padding-left:0}
+.bnums li+li{border-left:1px solid rgba(27,58,99,.14)}
+.bnums b{font:900 clamp(28px,2.6vw,36px)/1 var(--fd);color:var(--petrol);white-space:nowrap}
+.bnums span{font-size:14.5px;color:var(--txt2)}
+.sec-home .head,.blk .home-wrap{margin-top:0}
+/* две карточки: топперы и опт */
+.duo{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:clamp(16px,2vw,26px)}
+.pcard{display:flex;flex-direction:column;min-width:0;border-radius:12px;overflow:hidden;background:#fff;box-shadow:0 1px 0 rgba(27,58,99,.06),0 22px 40px -32px rgba(19,43,74,.55);scroll-margin-top:calc(var(--hdr) + 16px)}
+.pcard-ph{aspect-ratio:16/9;overflow:hidden;background:var(--milk2)}
+.pcard-ph img{width:100%;height:100%;object-fit:cover;transition:transform .6s cubic-bezier(.2,.7,.2,1)}
+@media (hover:hover) and (pointer:fine){.pcard:hover .pcard-ph img{transform:scale(1.04)}}
+.pcard-b{flex:1;display:flex;flex-direction:column;align-items:flex-start;padding:clamp(20px,2.4vw,30px)}
+.pcard h3{font:800 clamp(21px,1.8vw,25px)/1.2 var(--fd);color:var(--petrol)}
+.pcard p{margin-top:10px;font-size:16px;line-height:1.55;color:var(--txt2)}
+.pcard .ticks{margin:16px 0 22px}
+.pcard .btn{margin-top:auto}
+/* доставка: три пункта как полоса преимуществ */
+.trio{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(14px,1.8vw,22px)}
+.trio li{display:flex;flex-direction:column;align-items:flex-start;gap:6px;padding:clamp(20px,2.2vw,28px);border-radius:12px;background:#fff;box-shadow:0 1px 0 rgba(27,58,99,.06),0 22px 40px -32px rgba(19,43,74,.45)}
+.trio .feat-ic{width:64px;height:64px;margin-bottom:10px}
+.trio .feat-ic svg{width:32px;height:32px}
+.trio b{font:800 clamp(18px,1.55vw,21px)/1.2 var(--fd);color:var(--petrol)}
+.trio li>span:last-child{font-size:15.5px;line-height:1.5;color:var(--txt2)}
+/* FAQ и контакты в новой голове */
+#faq .faq{max-width:none}
+.sec-kont .kont-info{align-items:flex-start;text-align:left}
+.sec-kont .kont-more,.sec-kont .kont-btns{justify-content:flex-start}
+@media (max-width:860px){
+  .duo,.trio{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:760px){
+  .blk{padding:48px 0}
+  .sec-kont{padding-bottom:calc(48px + var(--stk))}
+  .bnums{display:grid;grid-template-columns:repeat(3,minmax(0,1fr))}
+  .bnums li{padding:2px 10px;min-width:0}
+  .bnums b{font-size:22px}
+  .bnums span{font-size:13px}
+  .bprice .gift{margin-left:0}
+}
