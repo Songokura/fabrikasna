@@ -30,9 +30,9 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap">
-<link rel="preload" as="image" href="assets/img/hero-bed-m.webp" media="(max-width:760px)">
-<link rel="preload" as="image" href="assets/img/hero-bed.webp" media="(min-width:761px)">
-<link rel="stylesheet" href="styles.css?v=20261019-4">
+<link rel="preload" as="image" href="assets/img/mk-hero-m.webp" media="(max-width:760px)">
+<link rel="preload" as="image" href="assets/img/mk-hero.webp" media="(min-width:761px)">
+<link rel="stylesheet" href="styles.css?v=20261019-7">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -89,9 +89,8 @@
     <nav class="nav" aria-label="Разделы">
       <a href="#top" class="is-cur" data-i="nav.home">Главная</a>
       <a href="#katalog" data-i="nav.katalog">Каталог</a>
-      <a href="#podbor" data-i="nav.podbor">Модели</a>
+      <a href="#u-pokupateley" data-i="nav.about">О нас</a>
       <a href="#dostavka" data-i="nav.dostavka">Доставка</a>
-      <a href="#opt" data-i="nav.opt">Опт</a>
       <a href="#kontakty" data-i="nav.kontakty">Контакты</a>
     </nav>
     <div class="hdr-right">
@@ -110,7 +109,7 @@
 <div class="menu" id="menu" hidden>
   <div class="menu-in">
     <a href="#katalog" data-i="nav.katalog">Каталог</a>
-    <a href="#podbor" data-i="nav.podbor">Модели</a>
+    <a href="#u-pokupateley" data-i="nav.about">О нас</a>
     <a href="#toppery" data-i="nav.toppery">Топперы</a>
     <a href="#dostavka" data-i="nav.dostavka">Доставка</a>
     <a href="#opt" data-i="nav.opt">Опт</a>
@@ -127,18 +126,17 @@
 <!-- Герой: текст слева, кровать справа -->
 <section class="hero" id="top" aria-labelledby="h1">
   <picture class="hero-ph">
-    <source media="(max-width:760px)" srcset="assets/img/hero-bed-m.webp">
-    <img src="assets/img/hero-bed.webp" width="1600" height="1056" alt="Светлая спальня: кровать с белыми и синими подушками у окна" data-i-alt="alt.hero" fetchpriority="high" decoding="async">
+    <source media="(max-width:760px)" srcset="assets/img/mk-hero-m.webp">
+    <img src="assets/img/mk-hero.webp" width="2400" height="1046" alt="Светлая спальня: матрас Фабрика Сна на кровати с синими подушками" data-i-alt="alt.hero" fetchpriority="high" decoding="async">
   </picture>
   <div class="hero-fade" aria-hidden="true"></div>
   <div class="wrap hero-in">
     <div class="hero-txt">
       <p class="hero-brand">Фабрика Сна</p>
       <h1 id="h1"><span class="l1" data-i="hero.l1">Ортопедические матрасы</span> <span class="l2" data-i="hero.l2">для здорового сна</span></h1>
-      <p class="hero-lead" data-i="hero.lead">Фабричные матрасы в&nbsp;наличии и&nbsp;топперы своего производства в&nbsp;Астане. Забота о&nbsp;вашей спине, комфорте и&nbsp;здоровье.</p>
+      <p class="hero-lead" data-i="hero.lead2">Качественные матрасы собственного производства. Забота о&nbsp;вашей спине, комфорте и&nbsp;здоровье.</p>
       <div class="hero-cta">
         <a class="btn btn-dark btn-xl" href="#katalog"><span data-i="hero.btn">Выбрать матрас</span><svg width="22" height="22" aria-hidden="true"><use href="#ic-arr"/></svg></a>
-        <a class="btn btn-wa btn-xl" href="https://wa.me/77760614911" data-wa="hero" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="btn.wa">Написать в WhatsApp</span></a>
       </div>
     </div>
   </div>
@@ -151,92 +149,25 @@
     <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-spring"/></svg></span><b data-i="ft4.t1">Плотный пружинный блок</b><span data-i="ft4.p1">240 пружин на&nbsp;м² для равномерной поддержки</span></li>
     <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-wire"/></svg></span><b data-i="ft4.t2">Проволока 2,2&nbsp;мм</b><span data-i="ft4.p2">Надёжные и прочные пружины из&nbsp;качественной стали</span></li>
     <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-spine"/></svg></span><b data-i="ft4.t3">Комфорт для спины</b><span data-i="ft4.p3">Правильное положение тела и&nbsp;здоровый сон</span></li>
-    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-shield"/></svg></span><b data-i="ft4.t4">Гарантия 5&nbsp;лет</b><span data-i="ft4.p4">На пружинный блок, 15&nbsp;лет службы матраса</span></li>
+    <li><span class="feat-ic"><svg width="34" height="34" aria-hidden="true"><use href="#ic-shield"/></svg></span><b data-i="ft4.t4b">Гарантия качества</b><span data-i="ft4.p4b">Собственное производство и&nbsp;контроль на&nbsp;каждом этапе</span></li>
   </ul>
 </section>
 
 <!-- Каталог -->
 <section class="kat" id="katalog" aria-labelledby="h-kat">
+  <img class="kat-leaf" src="assets/img/mk-leaf.webp" width="140" height="640" alt="" aria-hidden="true" loading="lazy" decoding="async">
   <div class="wrap kat-in">
     <div class="kat-t rv">
       <p class="kat-k" data-i="kat.k">Каталог матрасов</p>
       <h2 id="h-kat" data-i="kat.h">Выберите свой идеальный матрас</h2>
-      <p class="kat-lead" data-i="kat.lead">Четыре модели разной жёсткости и&nbsp;высоты, топперы под ваш размер. Подскажем, какой подойдёт именно вам.</p>
-      <a class="btn btn-line" href="#podbor"><span data-i="kat.btn">Перейти в каталог</span><svg width="20" height="20" aria-hidden="true"><use href="#ic-arr"/></svg></a>
+      <p class="kat-lead" data-i="kat.lead2">Мы предлагаем матрасы разной жёсткости, высоты и&nbsp;наполнения. Найдите тот, который подходит именно вам.</p>
+      <a class="btn btn-line" href="https://wa.me/77760614911" data-wa="katalog" target="_blank" rel="noopener"><span data-i="kat.btn">Перейти в каталог</span><svg width="20" height="20" aria-hidden="true"><use href="#ic-arr"/></svg></a>
     </div>
     <ul class="kat-cards rv">
-      <li><a class="kcard" href="#podbor"><span class="kcard-ph"><img src="assets/img/mattress.webp" width="1400" height="579" alt="Пружинный матрас Фабрика Сна со стёганым чехлом" data-i-alt="alt.mattress" loading="lazy" decoding="async" style="--pos:38% 50%"></span><b data-i="kat.c1">Пружинные матрасы</b><span data-i="kat.c1p">4 модели, от&nbsp;мягкой до&nbsp;жёсткой</span></a></li>
-      <li><a class="kcard" href="#toppery"><span class="kcard-ph"><img src="assets/img/topper-foam.webp" width="960" height="720" alt="Пена топпера в разрезе" data-i-alt="alt.foam" loading="lazy" decoding="async"></span><b data-i="kat.c2">Топперы</b><span data-i="kat.c2p">Своего производства, под ваш размер</span></a></li>
-      <li><a class="kcard" href="#opt"><span class="kcard-ph"><img src="assets/img/opt-w.webp" width="1400" height="1050" alt="Номер гостиницы с застеленной кроватью" data-i-alt="alt.opt" loading="lazy" decoding="async"></span><b data-i="kat.c3">Опт для гостиниц</b><span data-i="kat.c3p">Партии со своего склада</span></a></li>
+      <li><a class="kcard" href="https://wa.me/77760614911" data-wa="kat" target="_blank" rel="noopener"><span class="kcard-ph"><img src="assets/img/mk-kat-spring.webp" width="640" height="473" alt="Пружинный матрас со стёганым чехлом" data-i-alt="alt.k1" loading="lazy" decoding="async"></span><b data-i="kat.c1">Пружинные матрасы</b><span data-i="kat.c1p2">Классика, проверенная временем</span></a></li>
+      <li><a class="kcard" href="https://wa.me/77760614911" data-wa="kat" target="_blank" rel="noopener"><span class="kcard-ph"><img src="assets/img/mk-kat-nospring.webp" width="640" height="460" alt="Беспружинный матрас в разрезе" data-i-alt="alt.k2" loading="lazy" decoding="async"></span><b data-i="kat.c2b">Беспружинные матрасы</b><span data-i="kat.c2p2">Максимальный комфорт и&nbsp;тишина</span></a></li>
+      <li><a class="kcard" href="https://wa.me/77760614911" data-wa="kat" target="_blank" rel="noopener"><span class="kcard-ph"><img src="assets/img/mk-kat-topper.webp" width="640" height="446" alt="Свёрнутый стёганый топпер" data-i-alt="alt.k3" loading="lazy" decoding="async"></span><b data-i="kat.c3b">Топперы и наматрасники</b><span data-i="kat.c3p2">Для дополнительного комфорта</span></a></li>
     </ul>
-  </div>
-</section>
-
-<!-- Модели: переключение и схема слоёв -->
-<section class="blk" id="podbor" aria-labelledby="h-podbor">
-  <div class="wrap">
-    <div class="bhead rv" id="matrasy">
-      <div class="bhead-t">
-        <p class="bk" data-i="p2.kick">Модели в наличии</p>
-        <h2 id="h-podbor" data-i="p2.h">Четыре модели на пружинном блоке</h2>
-        <p class="blead" data-i="p2.lead">Нажмите на модель - схема покажет, что внутри.</p>
-      </div>
-      <p class="bprice"><span data-i="m.from">от</span> <b>11&nbsp;000&nbsp;₸</b> <span data-i="m.to">до 180&nbsp;000&nbsp;₸</span><span class="gift" data-i="m.c2">Подушка в подарок</span></p>
-    </div>
-    <form class="cfg rv" id="pick" data-lb-direct novalidate>
-      <div class="cfg-main">
-        <div class="cfg-stage">
-          <fieldset class="cfg-models">
-            <legend class="vh" data-i="cf.models">Модель матраса</legend>
-            <label class="mdl"><input type="radio" name="model" value="grand-hard" checked><span><b>Гранд Хард</b><small data-i="cf.f2">Жёсткий</small></span></label>
-            <label class="mdl"><input type="radio" name="model" value="francesco-ice"><span><b>Франческо Айс</b><small data-i="cf.f1">Средний</small></span></label>
-            <label class="mdl"><input type="radio" name="model" value="grand-memory"><span><b>Гранд Мемори</b><small data-i="cf.f0">Мягкий</small></span></label>
-            <label class="mdl"><input type="radio" name="model" value="vivien-lux"><span><b>Вивьен Люкс</b><small data-i="cf.f1">Средний</small></span></label>
-          </fieldset>
-          <p class="cfg-cap"><span data-i="cf.inside">Что внутри</span> · <span id="cfg-count"></span></p>
-          <ol class="stack" id="cfg-stack"></ol>
-          <p class="cfg-dim"><span class="cfg-dim-l" id="cfg-dimbar"><i></i></span><span><span data-i="cf.width">Ширина</span> <b id="cfg-w">160 см</b></span></p>
-          <fieldset class="pick-g">
-            <legend data-i="cf.wleg">Ширина, см · длина 200</legend>
-            <div class="opts">
-              <label><input type="radio" name="size" value="80×200"><span>80</span></label>
-              <label><input type="radio" name="size" value="90×200"><span>90</span></label>
-              <label><input type="radio" name="size" value="120×200"><span>120</span></label>
-              <label><input type="radio" name="size" value="140×200"><span>140</span></label>
-              <label><input type="radio" name="size" value="150×200"><span>150</span></label>
-              <label><input type="radio" name="size" value="160×200" checked><span>160</span></label>
-              <label><input type="radio" name="size" value="180×200"><span>180</span></label>
-              <label><input type="radio" name="size" value="Свой размер"><span data-i="p.s8">Свой размер</span></label>
-            </div>
-          </fieldset>
-        </div>
-        <div class="cfg-panel">
-          <h3 class="cfg-name" id="cfg-name" aria-live="polite">Гранд Хард</h3>
-          <p class="cfg-tag" id="cfg-tag"></p>
-          <p class="firm"><span class="firm-k" data-i="p.firm">Жёсткость</span><span class="firm-bars" id="cfg-firm" aria-hidden="true"><i></i><i></i><i></i></span><b id="cfg-firm-t">Жёсткий</b></p>
-          <dl class="specs">
-            <div><dt data-i="cf.h">Высота</dt><dd id="cfg-h"></dd></div>
-            <div><dt data-i="cf.load">Нагрузка на место</dt><dd id="cfg-load"></dd></div>
-            <div><dt data-i="cf.war">Гарантия</dt><dd id="cfg-war"></dd></div>
-            <div><dt data-i="cf.life">Срок службы</dt><dd id="cfg-life"></dd></div>
-          </dl>
-          <ul class="ticks ticks-s" id="cfg-feat"></ul>
-          <fieldset class="pick-g">
-            <legend data-i="p.who">Для кого</legend>
-            <div class="opts">
-              <label><input type="radio" name="who" value="Для себя" checked><span data-i="p.o1">Для себя</span></label>
-              <label><input type="radio" name="who" value="Для ребёнка"><span data-i="p.o2">Для ребёнка</span></label>
-              <label><input type="radio" name="who" value="Для гостиницы"><span data-i="p.o3">Для гостиницы</span></label>
-            </div>
-          </fieldset>
-          <label class="tgl"><input type="checkbox" name="topper" value="1"><span class="tgl-b" aria-hidden="true"></span><span data-i="cf.top">Добавить топпер своего производства</span></label>
-          <div class="pick-out">
-            <p class="pick-sum vh" id="pick-sum" aria-live="polite"></p>
-            <a class="btn btn-wa" href="https://wa.me/77760614911" data-wa="podbor" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="p.send">Узнать цену на модель</span></a>
-          </div>
-        </div>
-      </div>
-    </form>
   </div>
 </section>
 
@@ -278,7 +209,7 @@
     </div>
     <div class="duo">
       <article class="pcard rv" id="toppery" aria-labelledby="h-toppery">
-        <div class="pcard-ph"><img src="assets/img/toppery-w.webp" width="1024" height="576" alt="Рельефная пена топпера крупным планом" data-i-alt="alt.toppery" loading="lazy" decoding="async"></div>
+        <div class="pcard-ph"><img src="assets/img/mk-kat-topper.webp" width="640" height="446" alt="Свёрнутый стёганый топпер" data-i-alt="alt.k3" loading="lazy" decoding="async"></div>
         <div class="pcard-b">
           <h3 id="h-toppery" data-i="tp.h">Топперы своего производства</h3>
           <p data-i="tp.lead">Тонкий матрас поверх основного: выравнивает и добавляет мягкости.</p>
@@ -399,7 +330,7 @@
 
 </main>
 
-<footer class="foot">
+<footer class="foot foot-ph">
   <div class="wrap foot-in">
     <p class="foot-slogan"><svg width="40" height="40" viewBox="0 0 40 40" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" d="M8 32C8 18 17 9 33 7c0 15-8 24-22 24M8 32l13-13"/></svg><span data-i="ft.slogan">Фабрика Сна - ваш комфортный сон каждый день</span></p>
     <a class="hdr-call foot-call" href="tel:+77760614911"><svg width="24" height="24" aria-hidden="true"><use href="#ic-tel"/></svg><span><b>+7&nbsp;776&nbsp;061&nbsp;49&nbsp;11</b><small data-i="hdr.hours">Звоните с 10:00 до 19:00</small></span></a>
@@ -413,6 +344,6 @@
   <a class="st-wa" href="https://wa.me/77760614911" data-wa="sticky" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="script.js?v=20261019-4"></script>
+<script src="script.js?v=20261019-7"></script>
 </body>
 </html>

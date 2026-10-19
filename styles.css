@@ -116,10 +116,10 @@ h1,h2,h3{font-family:var(--fd);font-weight:800;letter-spacing:-.015em;line-heigh
 body.menu-open .burger span{top:21px;transform:rotate(45deg)}
 body.menu-open .burger span+span{transform:rotate(-45deg)}
 body.menu-open .hdr{backdrop-filter:none;-webkit-backdrop-filter:none;background:var(--petrol)}
-/* порог бургера = порог меню: 1340px (по казахским подписям) */
-@media (max-width:1340px){.nav{display:none}.burger{display:block}.ico-tel{display:inline-flex}.hdr-right{margin-left:auto}}
-@media (min-width:1341px){.menu{display:none!important}.hdr-right{margin-left:32px;padding-left:26px;border-left:1px solid rgba(255,255,255,.18)}}
-@media (max-width:1340px) and (min-width:761px){:root{--hdr:78px}}
+/* порог бургера = порог меню: 1220px (по казахским подписям, замер 19.10.2026) */
+@media (max-width:1220px){.nav{display:none}.burger{display:block}.ico-tel{display:inline-flex}.hdr-right{margin-left:auto}}
+@media (min-width:1221px){.menu{display:none!important}.hdr-right{margin-left:32px;padding-left:26px;border-left:1px solid rgba(255,255,255,.18)}}
+@media (max-width:1220px) and (min-width:761px){:root{--hdr:78px}}
 @media (max-width:900px){.hdr-call,.hdr-wa{display:none}}
 @media (max-width:760px){:root{--hdr:64px}.hdr-right{gap:8px}.brand{gap:9px}.brand-ic{width:38px;height:29px}.bw1{font-size:10.5px;letter-spacing:.18em}.bw2{font-size:25px}}
 @media (max-width:374px){.brand-ic{width:32px;height:25px}.bw2{font-size:22px}.ico-tel{display:none}}
@@ -759,4 +759,25 @@ html:not(.js) .fold{display:none}
   .bnums b{font-size:22px}
   .bnums span{font-size:13px}
   .bprice .gift{margin-left:0}
+}
+
+/* ---------- 19.10.2026: первый экран точь-в-точь по макету клиента ---------- */
+/* фото из макета на всю ширину, текст поверх светлого окна слева */
+.hero-ph{left:0}
+.hero-ph img{object-position:62% 50%}
+.hero-fade{background:linear-gradient(90deg,rgba(250,248,244,.72) 0,rgba(250,248,244,.55) 26%,rgba(250,248,244,.18) 40%,rgba(250,248,244,0) 50%)}
+@media (min-width:761px){.hero{min-height:min(calc(var(--hdr) + 600px),90svh)}}
+/* каталог: размытая ветка слева, как в макете */
+.kat-leaf{position:absolute;left:0;top:0;height:100%;width:auto;pointer-events:none;opacity:.95}
+@media (max-width:1399px){.kat-leaf{display:none}}
+/* подвал: фото гор в дымке */
+.foot-ph{background:#1B3A63 url("assets/img/mk-foot.webp") 50% 100%/cover no-repeat}
+.foot-ph::before{display:none}
+@media (max-width:760px){
+  .hero-ph{aspect-ratio:1100/706}
+}
+/* пропорции героя как в макете: высота фото = ширина / 2.29 */
+@media (min-width:761px){
+  .hero{min-height:calc(var(--hdr) + min(43.6vw,100svh - var(--hdr)))}
+  .hero-lead{max-width:21em}
 }

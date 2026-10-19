@@ -30,7 +30,9 @@
     opt: "Здравствуйте! " + SITE + " Нужен оптовый прайс. Объект и количество: ",
     kontakty: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     sticky: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
-    podbor: "Здравствуйте! " + SITE + " Интересует матрас:"
+    podbor: "Здравствуйте! " + SITE + " Интересует матрас:",
+    katalog: "Здравствуйте! " + SITE + " Пришлите, пожалуйста, каталог матрасов с ценами.",
+    kat: "Здравствуйте! " + SITE + " Интересует:"
   } };
   var PICK_L = { ru: { model: "Модель", size: "Размер", who: "Для кого", top: "Топпер", yes: "добавить" } };
 
@@ -139,6 +141,10 @@
     if (key === "tip") {
       var card = a.closest(".tip"), nm = card ? card.querySelector("h3") : null;
       text += "\n" + (nm ? nm.textContent.trim() : "");
+    }
+    if (key === "kat") {
+      var kc = a.querySelector("b");
+      text += "\n" + (kc ? kc.textContent.trim() : "");
     }
     if (key === "podbor") {
       var p = pickData(), L = PICK_L[LANG] || PICK_L.ru;
