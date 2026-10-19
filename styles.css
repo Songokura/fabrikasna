@@ -672,3 +672,30 @@ html:not(.js) .fold{display:none}
   .home-ph:nth-child(2){margin-top:0}
   .js .home-ph.rv{opacity:1;transform:none}
 }
+
+/* ---------- 19.10.2026: плотнее и крупнее, ритм тёмно-синих блоков ---------- */
+.sec{padding:clamp(60px,7.5vw,104px) 0}
+.lead{font-size:clamp(17px,1.4vw,21px)}
+.head h2{font-size:clamp(32px,4.4vw,60px)}
+.split-t h2{font-size:clamp(32px,4.2vw,56px)}
+.pl-svc h2{font-size:clamp(32px,min(4vw,7svh),60px)}
+.pl-svc .lead{font-size:clamp(17px,1.4vw,21px)}
+.chips li{font-size:15px}
+.steps{max-width:580px}
+.steps b{font-size:20px}
+.steps span:not(.st-n){font-size:16.5px}
+.faq p{font-size:16.5px}
+/* пружины на тёмно-синем */
+.t-dark .spec3 li{background:rgba(255,255,255,.06);border-color:rgba(235,220,192,.38)}
+.t-dark .spec3 b{color:var(--gold2)}
+.t-dark .spec3 span{color:var(--fg2)}
+.t-dark .sig-card{box-shadow:0 34px 70px -30px rgba(4,12,26,.75)}
+/* опт: плита тёмно-синяя */
+.pl-dark{background:radial-gradient(120% 90% at 50% 0,var(--petrol2),var(--petrol) 55%,var(--deep));color:#F3F6FA}
+.pl-dark h2{color:#F3F6FA}
+.pl-dark .lead{color:#C9D5E4}
+.pl-dark .kick{color:var(--gold)}
+.pl-dark .chips li{background:rgba(255,255,255,.06);color:#EEF2F1;border-color:rgba(235,220,192,.42)}
+.pl-dark .sig-panel{box-shadow:0 34px 70px -30px rgba(4,12,26,.75)}
+.pl-dark :focus-visible{outline-color:var(--gold)}
+@media (max-width:760px){.sec{padding:56px 0}}
