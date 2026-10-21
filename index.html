@@ -32,7 +32,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Golos+Text:wght@400;500;600;700&family=Nunito:wght@700;800;900&display=swap">
 <link rel="preload" as="image" href="assets/img/mk-hero-m.webp" media="(max-width:760px)">
 <link rel="preload" as="image" href="assets/img/mk-hero.webp" media="(min-width:761px)">
-<link rel="stylesheet" href="styles.css?v=20261019-9">
+<link rel="stylesheet" href="styles.css?v=20261021-1">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -109,6 +109,7 @@
 <div class="menu" id="menu" hidden>
   <div class="menu-in">
     <a href="#katalog" data-i="nav.katalog">Каталог</a>
+    <a href="#podbor" data-i="nav.podbor">Модели</a>
     <a href="#u-pokupateley" data-i="nav.about">О нас</a>
     <a href="#toppery" data-i="nav.toppery">Топперы</a>
     <a href="#dostavka" data-i="nav.dostavka">Доставка</a>
@@ -168,6 +169,74 @@
       <li><a class="kcard" href="https://wa.me/77760614911" data-wa="kat" target="_blank" rel="noopener"><span class="kcard-ph"><img src="assets/img/mk-kat-nospring.webp" width="640" height="460" alt="Беспружинный матрас в разрезе" data-i-alt="alt.k2" loading="lazy" decoding="async"></span><b data-i="kat.c2b">Беспружинные матрасы</b><span data-i="kat.c2p2">Максимальный комфорт и&nbsp;тишина</span></a></li>
       <li><a class="kcard" href="https://wa.me/77760614911" data-wa="kat" target="_blank" rel="noopener"><span class="kcard-ph"><img src="assets/img/mk-kat-topper.webp" width="640" height="446" alt="Свёрнутый стёганый топпер" data-i-alt="alt.k3" loading="lazy" decoding="async"></span><b data-i="kat.c3b">Топперы и наматрасники</b><span data-i="kat.c3p2">Для дополнительного комфорта</span></a></li>
     </ul>
+  </div>
+</section>
+
+<!-- Модели: переключение и схема слоёв -->
+<section class="blk" id="podbor" aria-labelledby="h-podbor">
+  <div class="wrap">
+    <div class="bhead rv" id="matrasy">
+      <div class="bhead-t">
+        <p class="bk" data-i="p2.kick">Модели в наличии</p>
+        <h2 id="h-podbor" data-i="p2.h">Четыре модели на пружинном блоке</h2>
+        <p class="blead" data-i="p2.lead">Нажмите на модель - схема покажет, что внутри.</p>
+      </div>
+      <p class="bprice"><span data-i="m.from">от</span> <b>11&nbsp;000&nbsp;₸</b> <span data-i="m.to">до 180&nbsp;000&nbsp;₸</span><span class="gift" data-i="m.c2">Подушка в подарок</span></p>
+    </div>
+    <form class="cfg rv" id="pick" data-lb-direct novalidate>
+      <div class="cfg-main">
+        <div class="cfg-stage">
+          <fieldset class="cfg-models">
+            <legend class="vh" data-i="cf.models">Модель матраса</legend>
+            <label class="mdl"><input type="radio" name="model" value="grand-hard" checked><span><b>Гранд Хард</b><small data-i="cf.f2">Жёсткий</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="francesco-ice"><span><b>Франческо Айс</b><small data-i="cf.f1">Средний</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="grand-memory"><span><b>Гранд Мемори</b><small data-i="cf.f0">Мягкий</small></span></label>
+            <label class="mdl"><input type="radio" name="model" value="vivien-lux"><span><b>Вивьен Люкс</b><small data-i="cf.f1">Средний</small></span></label>
+          </fieldset>
+          <p class="cfg-cap"><span data-i="cf.inside">Что внутри</span> · <span id="cfg-count"></span></p>
+          <ol class="stack" id="cfg-stack"></ol>
+          <p class="cfg-dim"><span class="cfg-dim-l" id="cfg-dimbar"><i></i></span><span><span data-i="cf.width">Ширина</span> <b id="cfg-w">160 см</b></span></p>
+          <fieldset class="pick-g">
+            <legend data-i="cf.wleg">Ширина, см · длина 200</legend>
+            <div class="opts">
+              <label><input type="radio" name="size" value="80×200"><span>80</span></label>
+              <label><input type="radio" name="size" value="90×200"><span>90</span></label>
+              <label><input type="radio" name="size" value="120×200"><span>120</span></label>
+              <label><input type="radio" name="size" value="140×200"><span>140</span></label>
+              <label><input type="radio" name="size" value="150×200"><span>150</span></label>
+              <label><input type="radio" name="size" value="160×200" checked><span>160</span></label>
+              <label><input type="radio" name="size" value="180×200"><span>180</span></label>
+              <label><input type="radio" name="size" value="Свой размер"><span data-i="p.s8">Свой размер</span></label>
+            </div>
+          </fieldset>
+        </div>
+        <div class="cfg-panel">
+          <h3 class="cfg-name" id="cfg-name" aria-live="polite">Гранд Хард</h3>
+          <p class="cfg-tag" id="cfg-tag"></p>
+          <p class="firm"><span class="firm-k" data-i="p.firm">Жёсткость</span><span class="firm-bars" id="cfg-firm" aria-hidden="true"><i></i><i></i><i></i></span><b id="cfg-firm-t">Жёсткий</b></p>
+          <dl class="specs">
+            <div><dt data-i="cf.h">Высота</dt><dd id="cfg-h"></dd></div>
+            <div><dt data-i="cf.load">Нагрузка на место</dt><dd id="cfg-load"></dd></div>
+            <div><dt data-i="cf.war">Гарантия</dt><dd id="cfg-war"></dd></div>
+            <div><dt data-i="cf.life">Срок службы</dt><dd id="cfg-life"></dd></div>
+          </dl>
+          <ul class="ticks ticks-s" id="cfg-feat"></ul>
+          <fieldset class="pick-g">
+            <legend data-i="p.who">Для кого</legend>
+            <div class="opts">
+              <label><input type="radio" name="who" value="Для себя" checked><span data-i="p.o1">Для себя</span></label>
+              <label><input type="radio" name="who" value="Для ребёнка"><span data-i="p.o2">Для ребёнка</span></label>
+              <label><input type="radio" name="who" value="Для гостиницы"><span data-i="p.o3">Для гостиницы</span></label>
+            </div>
+          </fieldset>
+          <label class="tgl"><input type="checkbox" name="topper" value="1"><span class="tgl-b" aria-hidden="true"></span><span data-i="cf.top">Добавить топпер своего производства</span></label>
+          <div class="pick-out">
+            <p class="pick-sum vh" id="pick-sum" aria-live="polite"></p>
+            <a class="btn btn-wa" href="https://wa.me/77760614911" data-wa="podbor" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span data-i="p.send">Узнать цену на модель</span></a>
+          </div>
+        </div>
+      </div>
+    </form>
   </div>
 </section>
 
@@ -344,6 +413,6 @@
   <a class="st-wa" href="https://wa.me/77760614911" data-wa="sticky" target="_blank" rel="noopener"><svg width="20" height="20" aria-hidden="true"><use href="#ic-wa"/></svg><span>WhatsApp</span></a>
 </nav>
 
-<script src="script.js?v=20261019-9"></script>
+<script src="script.js?v=20261021-1"></script>
 </body>
 </html>
