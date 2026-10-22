@@ -781,3 +781,28 @@ html:not(.js) .fold{display:none}
   .hero{min-height:calc(var(--hdr) + min(43.6vw,100svh - var(--hdr)))}
   .hero-lead{max-width:21em}
 }
+
+/* ---------- конфигуратор: отделы, новые модели, фото ---------- */
+.mdl[hidden],.firm[hidden],.firm-bars[hidden],.specs[hidden],.specs div[hidden],.cfg-gal[hidden],.cfg .pick-g[hidden],.tgl[hidden]{display:none}
+.cfg-cats{border:0;min-width:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:3px;padding:3px;margin-bottom:10px;border-radius:12px;background:var(--milk2)}
+.cfg-cats label{position:relative;cursor:pointer;min-width:0}
+.cfg-cats input{position:absolute;opacity:0;width:1px;height:1px}
+.cfg-cats span{display:flex;align-items:center;justify-content:center;min-height:42px;padding:0 6px;border-radius:9px;font:700 14.5px/1.15 var(--ft);color:var(--txt2);text-align:center;transition:background .25s,color .25s,box-shadow .25s}
+.cfg-cats input:checked+span{background:#fff;color:var(--ink);box-shadow:0 4px 12px -6px rgba(19,43,74,.45)}
+.cfg-cats input:focus-visible+span{outline:2px solid var(--gold3);outline-offset:1px}
+@media (hover:hover) and (pointer:fine){.cfg-cats label:hover span{color:var(--ink)}}
+.cfg-models{grid-template-columns:repeat(var(--n,4),minmax(0,1fr))}
+.cfg-models .mdl b{white-space:normal}
+@media (max-width:760px){.cfg-models{grid-template-columns:repeat(2,minmax(0,1fr))}.cfg-models .mdl.span2{grid-column:1/-1}}
+.mdl b{white-space:normal}
+.slab[data-t=coco]{background:repeating-linear-gradient(115deg,#8A5A32 0 2px,#B07A49 2px 4px,#9C6A3E 4px 6px);box-shadow:inset 0 0 0 1px rgba(80,48,20,.35)}
+.stack.zones .slab{position:relative;overflow:hidden}
+.stack.zones .slab::after{content:"";position:absolute;inset:0 0 0 50%;background:rgba(214,120,150,.26);border-left:1.5px dashed rgba(14,27,33,.4)}
+.stack.zones li.is-spr .slab::after{background:rgba(214,120,150,.32)}
+.cfg-gal{display:grid;grid-template-columns:repeat(var(--n,1),minmax(0,1fr));gap:6px;margin-bottom:14px}
+.cfg-gal li{border-radius:12px;overflow:hidden;background:var(--milk);aspect-ratio:4/3}
+.cfg-gal li:only-child{aspect-ratio:16/9}
+.cfg-gal img{display:block;width:100%;height:100%;object-fit:cover}
+.specs{grid-template-columns:repeat(min(var(--n,4),4),minmax(0,1fr))}
+@media (max-width:1100px) and (min-width:901px){.specs{grid-template-columns:repeat(min(var(--n,4),2),minmax(0,1fr))}}
+@media (max-width:760px){.specs{grid-template-columns:repeat(min(var(--n,4),2),minmax(0,1fr))}.cfg-cats span{font-size:13.5px;min-height:40px}}

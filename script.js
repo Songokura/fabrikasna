@@ -31,10 +31,10 @@
     kontakty: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     sticky: "Здравствуйте! " + SITE + " Хочу подобрать матрас.",
     podbor: "Здравствуйте! " + SITE + " Интересует матрас:",
-    katalog: "Здравствуйте! " + SITE + " Пришлите, пожалуйста, каталог матрасов с ценами.",
+    katalog: "Здравствуйте! " + SITE + " Пришлите, пожалуйста, каталог матрасов.",
     kat: "Здравствуйте! " + SITE + " Интересует:"
   } };
-  var PICK_L = { ru: { model: "Модель", size: "Размер", who: "Для кого", top: "Топпер", yes: "добавить" } };
+  var PICK_L = { ru: { model: "Модель", size: "Размер", who: "Для кого", top: "Топпер", yes: "добавить", fab: "Ткань чехла" } };
 
   /* ---------- Модели: слои и характеристики (RU здесь, KZ в assets/lang/kk.js) ---------- */
   var LY = {
@@ -49,12 +49,21 @@
     mem: ["mem", 24, "Memory Foam - пена с памятью формы"],
     felt: ["felt", 8, "Войлок из волокна"],
     lat20: ["latex", 18, "Натуральный латекс 20\u00a0мм"],
-    spr: ["spr", 48, "Независимый пружинный блок: 240 пружин/м², проволока 2,2\u00a0мм"]
+    spr: ["spr", 48, "Независимый пружинный блок: 240 пружин/м², проволока 2,2\u00a0мм"],
+    cover: ["fabric", 10, "Чехол: полиэстер, жаккард или вискоза"],
+    coco: ["coco", 16, "Кокосовое волокно"],
+    ppuC: ["ppu30", 44, "ППУ - основа матраса"],
+    visc15: ["fabric", 15, "Стёганая ткань вискоза 1,5\u00a0см"],
+    poly15: ["fabric", 15, "Стёганая ткань полиэстер 1,5\u00a0см"],
+    ppu20: ["ppu30", 20, "ППУ 2\u00a0см"]
   };
   var FE = {
     ppu30: "Усиленный ППУ 30\u00a0мм", ppu4: "Четыре слоя ППУ", felt2: "Войлок с обеих сторон блока",
     cool: "Ткань с эффектом холодка", latex: "Натуральный латекс 20\u00a0мм", season: "Летняя и зимняя сторона",
-    mem: "Слой Memory Foam", two: "Двусторонняя конструкция", cot2: "Хлопок 240\u00a0г/м² с двух сторон"
+    mem: "Слой Memory Foam", two: "Двусторонняя конструкция", cot2: "Хлопок 240\u00a0г/м² с двух сторон",
+    zones: "Две половины разной жёсткости", spr240: "Независимый блок 240 пружин/м²", coco2: "Кокос с двух сторон",
+    quiet: "Без пружин - не скрипит", fabpick: "Ткань чехла на выбор", gum: "Резинки по углам 3\u00a0см",
+    visc: "Стёганая вискоза", poly: "Стёганый полиэстер", size: "Шьём под ваш размер"
   };
   var MODELS = {
     "grand-hard": { n: "Гранд Хард", f: 2, h: "26-27", load: 150, war: 5, life: 15,
@@ -68,8 +77,38 @@
       tag: "Слой с памятью формы мягко повторяет тело и снимает давление на плечи и бёдра.", fe: ["mem", "ppu30", "two"] },
     "vivien-lux": { n: "Вивьен Люкс", f: 1, h: "24", load: 120, war: 4, life: 15,
       ly: ["cot240", "sin100", "ppu12", "ppu12", "felt", "spr", "felt", "ppu12", "ppu12", "sin100", "cot240"],
-      tag: "Модель на каждый день: обе стороны одинаковые, хлопок сверху и снизу.", fe: ["cot2", "ppu4", "two"] }
+      tag: "Модель на каждый день: обе стороны одинаковые, хлопок сверху и снизу.", fe: ["cot2", "ppu4", "two"] },
+    "dvuhzon": { n: "Для неё и для него", ft: "fz2", zones: 1,
+      ly: ["cot350", "sin100", "ppu12", "ppu12", "ppu30", "felt", "spr", "felt", "ppu12", "ppu12", "sin100", "jac128"],
+      ph: ["m-dvuhzon"],
+      tag: "Двухзонный пружинный матрас: у каждой половины своя жёсткость, каждому - удобная сторона.", fe: ["zones", "spr240", "felt2"] },
+    "kokos": { n: "ППУ-кокос", fab: 1,
+      ly: ["cover", "coco", "ppuC", "coco", "cover"],
+      ph: ["m-kokos-1", "m-kokos-2", "m-kokos-3"],
+      tag: "Беспружинный матрас: основа из ППУ, кокосовое волокно с двух сторон.", fe: ["coco2", "quiet", "fabpick"] },
+    "t-viskoza": { n: "Топпер вискоза", h: "5", topper: 1,
+      ly: ["visc15", "ppu20", "visc15"],
+      ph: ["t-viskoza"],
+      tag: "Тонкий матрас поверх основного: ППУ 2\u00a0см в стёганой вискозе, держится резинками.", fe: ["visc", "gum", "size"] },
+    "t-poly": { n: "Топпер полиэстер", h: "5", topper: 1,
+      ly: ["poly15", "ppu20", "poly15"],
+      ph: ["t-poly-1", "t-poly-2"],
+      tag: "Тонкий матрас поверх основного: ППУ 2\u00a0см в стёганом полиэстере.", fe: ["poly", "size"] }
   };
+  var PH_ALT = {
+    "m-dvuhzon": "Двухзонный матрас: розовая и серая половины чехла",
+    "m-kokos-1": "Беспружинный матрас ППУ-кокос в разрезе",
+    "m-kokos-2": "Два матраса на кроватях в квартире покупателя",
+    "m-kokos-3": "Матрас на кровати в квартире покупателя",
+    "t-viskoza": "Край стёганого топпера из вискозы",
+    "t-poly-1": "Стёганый топпер из полиэстера",
+    "t-poly-2": "Топперы на двух кроватях в детской"
+  };
+  function layersWord(n) {
+    if (LANG === "kk") return tm("u.layers", "");
+    var a = n % 10, b = n % 100;
+    return (a === 1 && b !== 11) ? "слой" : (a >= 2 && a <= 4 && (b < 12 || b > 14)) ? "слоя" : "слоёв";
+  }
   function tm(key, ru) { var d = I18N[LANG]; return (LANG !== "ru" && d && d[key] != null) ? d[key] : ru; }
   function years(n) { return LANG === "kk" ? n + " " + tm("u.year", "лет") : n + (n === 4 ? " года" : " лет"); }
 
@@ -78,9 +117,10 @@
   function chkTxt(el) { var sp = el && el.nextElementSibling; return sp ? sp.textContent.trim() : (el ? el.value : ""); }
   function pickData() {
     if (!pick) return null;
-    var m = chk("model"), sz = chk("size"), who = chk("who");
-    var key = m ? m.value : "grand-hard";
-    return { key: key, m: MODELS[key] || MODELS["grand-hard"], size: sz && /^\d/.test(sz.value) ? sz.value : chkTxt(sz), sizeVal: sz ? sz.value : "", who: chkTxt(who), top: !!(pick.elements.topper && pick.elements.topper.checked) };
+    var m = chk("model"), sz = chk("size"), who = chk("who"), fb = chk("fab");
+    var key = m ? m.value : "grand-hard", mm = MODELS[key] || MODELS["grand-hard"];
+    return { key: key, m: mm, n: tm("mn." + key, mm.n), size: sz && /^\d/.test(sz.value) ? sz.value : chkTxt(sz), sizeVal: sz ? sz.value : "", who: chkTxt(who),
+      fab: mm.fab ? chkTxt(fb) : "", top: !mm.topper && !!(pick.elements.topper && pick.elements.topper.checked) };
   }
   function setTxt(id, v) { var el = doc.getElementById(id); if (el) el.textContent = v; }
   function cfgRender(anim) {
@@ -110,15 +150,29 @@
     }
     var bar = doc.getElementById("cfg-dimbar"); if (bar) bar.style.setProperty("--w", w);
     setTxt("cfg-w", d.sizeVal && cm ? cm + " " + tm("u.cm", "см") : tm("p.s8", "Свой размер"));
-    setTxt("cfg-count", m.ly.length + " " + tm("u.layers", "слоёв"));
-    setTxt("cfg-name", m.n);
+    if (stack) stack.classList.toggle("zones", !!m.zones);
+    setTxt("cfg-count", m.ly.length + " " + layersWord(m.ly.length));
+    setTxt("cfg-name", d.n);
     setTxt("cfg-tag", tm("mt." + d.key, m.tag));
-    var fi = doc.getElementById("cfg-firm"); if (fi) fi.setAttribute("data-f", m.f);
-    setTxt("cfg-firm-t", tm("cf.f" + m.f, ["Мягкий", "Средний", "Жёсткий"][m.f]));
-    setTxt("cfg-h", m.h + " " + tm("u.cm", "см"));
-    setTxt("cfg-load", LANG === "kk" ? m.load + " " + tm("u.kgto", "кг") : "до " + m.load + " кг");
-    setTxt("cfg-war", years(m.war));
-    setTxt("cfg-life", years(m.life));
+    var fi = doc.getElementById("cfg-firm"), hasF = m.f != null || !!m.ft;
+    if (fi) { fi.setAttribute("data-f", m.f != null ? m.f : ""); fi.hidden = m.f == null; fi.parentNode.hidden = !hasF; }
+    if (hasF) setTxt("cfg-firm-t", m.ft ? tm("cf." + m.ft, "Своя у каждой половины") : tm("cf.f" + m.f, ["Мягкий", "Средний", "Жёсткий"][m.f]));
+    function spec(id, v) { var el = doc.getElementById(id); if (!el) return; el.parentNode.hidden = v == null; if (v != null) el.textContent = v; }
+    spec("cfg-h", m.h ? m.h + " " + tm("u.cm", "см") : null);
+    spec("cfg-load", m.load ? (LANG === "kk" ? m.load + " " + tm("u.kgto", "кг") : "до " + m.load + " кг") : null);
+    spec("cfg-war", m.war ? years(m.war) : null);
+    spec("cfg-life", m.life ? years(m.life) : null);
+    var sp = doc.getElementById("cfg-specs"); if (sp) { sp.hidden = !(m.h || m.load || m.war || m.life); sp.style.setProperty("--n", [m.h, m.load, m.war, m.life].filter(Boolean).length); }
+    var fab = doc.getElementById("cfg-fab"); if (fab) fab.hidden = !m.fab;
+    var tg = doc.getElementById("cfg-tgl"); if (tg) tg.hidden = !!m.topper;
+    var gal = doc.getElementById("cfg-gal");
+    if (gal && gal.getAttribute("data-k") !== d.key) {
+      gal.setAttribute("data-k", d.key);
+      gal.hidden = !m.ph;
+      gal.innerHTML = (m.ph || []).map(function (f) { return '<li><img src="assets/img/' + f + '.webp" width="960" height="720" alt="" loading="lazy" decoding="async"></li>'; }).join("");
+      gal.style.setProperty("--n", m.ph ? m.ph.length : 0);
+    }
+    if (gal) [].forEach.call(gal.querySelectorAll("img"), function (im, i) { im.alt = tm("alt." + m.ph[i], PH_ALT[m.ph[i]]); });
     var fe = doc.getElementById("cfg-feat");
     if (fe) fe.innerHTML = m.fe.map(function (k) { return '<li><svg width="20" height="20" aria-hidden="true"><use href="#ic-chk"/></svg><span></span></li>'; }).join("");
     if (fe) [].forEach.call(fe.querySelectorAll("span"), function (sp, i) { sp.textContent = tm("fe." + m.fe[i], FE[m.fe[i]]); });
@@ -127,7 +181,8 @@
   function pickSummary() {
     var s = doc.getElementById("pick-sum"), d = pickData();
     if (!s || !d) return;
-    var parts = [d.m.n, d.size];
+    var parts = [d.n, d.size];
+    if (d.fab) parts.push(d.fab);
     if (d.top) parts.push("+ " + tm("u.topper", "топпер"));
     parts.push(d.who);
     s.textContent = parts.join(" · ");
@@ -149,7 +204,8 @@
     if (key === "podbor") {
       var p = pickData(), L = PICK_L[LANG] || PICK_L.ru;
       if (p) {
-        text += "\n" + L.model + ": " + p.m.n + "\n" + L.size + ": " + p.size;
+        text += "\n" + L.model + ": " + p.n + "\n" + L.size + ": " + p.size;
+        if (p.fab) text += "\n" + L.fab + ": " + p.fab;
         if (p.top) text += "\n" + L.top + ": " + L.yes;
         text += "\n" + L.who + ": " + p.who;
       }
@@ -370,16 +426,35 @@
   })();
 
   /* ---------- Модели и подбор ---------- */
+  function setCat(cat, keepModel) {
+    var r = pick.querySelector('input[name="cat"][value="' + cat + '"]'); if (r) r.checked = true;
+    var first = null, last = null, cur = chk("model"), cnt = 0;
+    [].forEach.call(pick.querySelectorAll(".mdl"), function (l) {
+      var on = l.getAttribute("data-cat") === cat; l.hidden = !on;
+      if (on) { cnt++; if (!first) first = l.querySelector("input"); last = l; }
+      l.classList.remove("span2");
+    });
+    if (last && cnt % 2) last.classList.add("span2");
+    var box = doc.getElementById("cfg-models"); if (box) box.style.setProperty("--n", cnt);
+    if (!(keepModel && cur && cur.closest(".mdl").getAttribute("data-cat") === cat) && first) first.checked = true;
+    var key = (chk("model") || {}).value;
+    if (key !== lastModel) { lastModel = key; cfgRender(true); } else cfgRender(false);
+  }
   if (pick) {
+    doc.addEventListener("click", function (e) {
+      var a = e.target && e.target.closest ? e.target.closest("a[data-cat]") : null;
+      if (a) setCat(a.getAttribute("data-cat"));
+    }, true);
     pick.addEventListener("change", function (e) {
       var n = e.target && e.target.name;
+      if (n === "cat") return setCat(e.target.value);
       var key = (chk("model") || {}).value;
       if (n === "model" && key !== lastModel) { lastModel = key; cfgRender(true); }
       else cfgRender(n === "topper" ? "top" : false);
     });
     pick.addEventListener("submit", function (e) { e.preventDefault(); });
     lastModel = (chk("model") || {}).value;
-    cfgRender(false);
+    setCat((chk("cat") || {}).value || "spring", true);
   }
 
   /* ---------- Проявление секций ---------- */
