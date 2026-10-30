@@ -213,6 +213,22 @@
     a.setAttribute("href", "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(text));
   }, true);
 
+  /* ---------- Конверсии Google Ads ---------- */
+  var CONV = {
+    phone: "AW-18541957325/8bjkCL2s_K4dEM2hv4lF",   /* Интерактивные номера телефонов: ссылки tel: */
+    contact: "AW-18541957325/TX3sCNKv_K4dEM2hv4lF", /* Контакт: ссылки wa.me и mailto: */
+    form: "AW-18541957325/eQsHCO23864dEM2hv4lF"     /* Отправка формы */
+  };
+  function fireConv(key) {
+    if (typeof W.gtag !== "function" || !CONV[key]) return;
+    W.gtag("event", "conversion", { send_to: CONV[key], value: 1.0, currency: "USD", transport_type: "beacon" });
+  }
+  W.addEventListener("click", function (e) {
+    var a = e.target && e.target.closest ? e.target.closest('a[href^="tel:"], a[href*="wa.me"], a[href^="mailto:"]') : null;
+    if (!a) return;
+    fireConv(a.getAttribute("href").indexOf("tel:") === 0 ? "phone" : "contact");
+  }, true);
+
   /* ---------- fitText для строк заголовка героя ---------- */
   var h1 = doc.getElementById("h1");
   function fitLine(sel, prop) {
@@ -485,6 +501,7 @@
       if (f.message.value.trim()) lines.push(L.msg + ": " + f.message.value.trim());
       var url = "https://wa.me/" + WA_NUM + "?text=" + encodeURIComponent(lines.join("\n"));
       W.open(url, "_blank", "noopener");
+      fireConv("form");
       form.hidden = true;
       if (thanks) { thanks.hidden = false; try { thanks.focus({ preventScroll: true }); } catch (err) {} }
       form.reset();
